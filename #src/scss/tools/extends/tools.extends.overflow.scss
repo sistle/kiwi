@@ -1,0 +1,35 @@
+%custom-scrollbar {
+	-webkit-overflow-scrolling: touch;
+	&::-webkit-scrollbar {
+		width: 12px;
+		height: 12px;
+		border-radius: 3px;
+	}
+	&::-webkit-scrollbar-track {
+		background: #74e6cf;
+		border-left: 5px solid #fff;
+		border-right: 5px solid #fff;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: linear-gradient(141deg, #74e6cf 13%, #c0e594 106%);
+		border-left: 3px solid #fff;
+		border-right: 3px solid #fff;
+		border-radius: 9px;
+
+		&:hover {
+			background-color: $light-gray;
+		}
+	}
+}
+
+%overflow-x {
+	overflow-x: auto;
+	overflow-y: hidden;
+	@extend %custom-scrollbar;
+}
+
+%overflow-y {
+	overflow-x: hidden;
+	overflow-y: auto;
+	@extend %custom-scrollbar;
+}

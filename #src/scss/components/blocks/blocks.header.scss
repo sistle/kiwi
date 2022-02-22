@@ -1,0 +1,251 @@
+.header {
+	min-height: var(--headerHeight);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background-color: #fff;
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: rem(10) 0px;
+	}
+
+	@media (max-width: $d1){
+		--headerHeight: 120px;
+	}
+	@media (max-width: $d2){
+		--headerHeight: 90px;
+	}
+
+	@media (max-width: $d4) {
+		--headerHeight: 80px;
+	}
+	@media (max-width: $d5) {
+		--headerHeight: 70px;
+	}
+	@media (orientation: landscape) and (max-width: $d6) {
+		--headerHeight: 50px;
+	}
+	@media (max-width: $tablet) {
+		--headerHeight: 60px;
+		&__inner {
+			justify-content: space-between;
+		}
+	}
+}
+
+.logo {
+	display: none;
+	@media (max-width: $tablet) {
+		display: block;
+	}
+	&__img {
+		height: rem(50);
+	}
+}
+
+.menu {
+	&__list {
+		display: flex;
+		align-items: center;
+		gap: rem(100);
+	}
+	&__item--dropdown {
+		@media (min-width: $tablet) {
+			position: relative;
+			@media (any-hover: hover) {
+				&:hover {
+					.menu__sub-list {
+						transform: translate(0px, 0px);
+						opacity: 1;
+						visibility: visible;
+						pointer-events: all;
+					}
+				}
+			}
+		}
+	}
+	&__link {
+		font-family: "Bebas";
+		color: $dark-light;
+		font-size: rem(24);
+		font-weight: bold;
+		letter-spacing: 0.05em;
+		transition: color 0.3s ease 0s;
+
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			bottom: -4px;
+			height: 4px;
+			left: 0;
+			width: 100%;
+			background-color: $azul;
+			opacity: 0;
+			transition: opacity 0.3s ease 0s;
+		}
+		@media (min-width: $tablet) {
+			@media (any-hover: hover) {
+				&:not(.menu__link--logo) {
+					&:hover {
+						color: $azul;
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+	&__link-underline {
+		@media (min-width: $tablet) {
+			display: none;
+		}
+	}
+	&__sub-list {
+		@media (min-width: $tablet) {
+			opacity: 0;
+			visibility: hidden;
+			pointer-events: none;
+			position: absolute;
+			left: -95%;
+			top: 100%;
+			z-index: 5;
+			transition: all 0.3s ease 0s;
+			transform: translate(0, 10px);
+			min-width: rem(160);
+			background: #fff;
+			box-shadow: 10px 10px 30px rgba(1, 163, 164, 0.15);
+		}
+		@media (max-width: $tablet) {
+			display: flex;
+		}
+	}
+
+	&__sub-link {
+		@media (min-width: $tablet) {
+			display: block;
+			font-family: "Roboto";
+			font-weight: bold;
+			font-size: rem(14);
+			letter-spacing: 0.25em;
+			color: inherit;
+			padding: rem(16) rem(10);
+			text-align: center;
+			@media (any-hover: hover) {
+				&:hover {
+					background-color: $blue;
+				}
+			}
+		}
+		@media (max-width: $tablet) {
+			display: block;
+			font-family: "Bebas";
+			color: $dark-light;
+			font-size: rem(24);
+			font-weight: bold;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	&__link--logo-img {
+		height: calc(var(--headerHeight) - rem(20));
+	}
+	&__img-wrapper {
+		@media (min-width: $tablet) {
+			display: none;
+		}
+		@media (orientation: landscape) and (max-width: $tablet) {
+			position: sticky;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+}
+@media (max-width: $d5) {
+	.menu {
+		&__list {
+			gap: rem(60);
+		}
+	}
+}
+
+@media (max-width: $tablet) {
+	.menu {
+		position: fixed;
+		top: calc(var(--headerHeight) );
+		left: 0;
+		height: 100%;
+		width: 100%;
+
+		background-color: $blue;
+		padding-top: rem(70);
+
+		overflow: auto;
+		z-index: 10;
+
+		transform: translateX(-100%);
+		transition: all 0.3s ease-in-out;
+
+		pointer-events: none;
+		visibility: hidden;
+
+		&.active {
+			transform: translateX(0);
+			pointer-events: all;
+			visibility: visible;
+			&.menu__link,
+			&.menu__sub-link {
+				pointer-events: all;
+			}
+		}
+		&__body {
+			position: relative;
+			height: 100%;
+		}
+
+		&__list,
+		&__sub-list {
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: rem(60);
+		}
+		&__item,
+		&__sub-item {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: rem(25);
+		}
+		&__item--logo {
+			display: none;
+		}
+		&__link--sublist {
+			display: none;
+		}
+		&__link,
+		&__sub-link {
+			font-size: rem(30);
+		}
+		&__img-wrapper {
+			position: absolute;
+			bottom: 0px;
+			right: 0px;
+		}
+
+		@media (max-width: $tablet) {
+			&__list,
+			&__sub-list {
+				gap: rem(20);
+			}
+			&__item,
+			&__sub-item {
+				gap: rem(10);
+			}
+		}
+	}
+}

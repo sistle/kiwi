@@ -1,0 +1,28 @@
+[class^="icon__"],
+[class*=" icon__"] {
+	&:before {
+		@extend %icons;
+		display: block;
+	}
+}
+.icon__arrow-left:before {
+	content: "\e900";
+}
+.icon__arrow-right:before {
+	content: "\e901";
+}
+.icon__facebook:before {
+	content: "\e902";
+}
+.icon__instagram:before {
+	content: "\e903";
+}
+.icon__logo-sheep-fish:before {
+	content: "\e904";
+}
+.icon__twitter:before {
+	content: "\e905";
+}
+.icon__youtube:before {
+	content: "\e906";
+}

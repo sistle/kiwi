@@ -1,0 +1,49 @@
+//<BUTTONS >====================================================================================================
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-appearance: none;
+	text-align: center;
+
+	font-family: inherit;
+
+	outline: none;
+	padding: rem(16) rem(15);
+	border-radius: rem(50);
+	line-height: 1;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+
+	&--big {
+		font-family: "Bebas", Arial, Helvetica, sans-serif;
+		font-size: rem(29);
+		font-weight: 700;
+		min-width: rem(280);
+
+		@media (max-width: $d6) {
+			width: 60%;
+		}
+		@media (max-width: $tablet) {
+			width: 80%;
+		}
+		@media (max-width: $mobile) {
+			width: 100%;
+		}
+	}
+	&--small {
+		font-family: Roboto;
+		font-weight: 500;
+		font-size: rem(15);
+		letter-spacing: 0.05em;
+
+		min-width: rem(112);
+		padding: rem(10);
+	}
+	@include button($azul, #fff);
+
+	&[disabled] {
+		cursor: not-allowed;
+	}
+}
+//</BUTTONS>====================================================================================================

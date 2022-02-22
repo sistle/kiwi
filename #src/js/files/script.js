@@ -1,0 +1,1 @@
+// Fancybox.show([{ src: "#popup-subs", type: "inline" }]);

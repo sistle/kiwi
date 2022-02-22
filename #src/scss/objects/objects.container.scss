@@ -1,0 +1,22 @@
+.container {
+	max-width: $maxWidthContainer;
+	margin: 0 auto;
+	// 100% container width
+
+
+	@media (max-width: $d4) {
+		max-width: 1200px;
+	}
+		@media (max-width: $d5) {
+		max-width: 980px;
+	}
+	@media (max-width: $d6) {
+		max-width: none;
+		padding: 0px 20px;
+	}
+	@media (max-width: $tablet) {
+		padding: 0 10px;
+	}
+	@media (max-width: $mobile) {
+	}
+}

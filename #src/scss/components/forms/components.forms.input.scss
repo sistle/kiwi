@@ -1,0 +1,27 @@
+//<Input >====================================================================================================
+.input {
+	border-radius: 0 !important;
+	width: 100%;
+	display: block;
+	padding: 0px 20px;
+	&:focus{
+		border-color: #000;
+	}
+	
+	&--request {
+		background-color: transparent;
+		
+		border-bottom: 1px solid #000;
+		padding: rem(10px) rem(5px);
+		&::placeholder {
+			color: #999999;
+			font-size: rem(18px);
+		}
+	}
+}
+.textarea {
+	resize: none;
+	padding: rem(9px) rem(16px);
+}
+
+//</Input >====================================================================================================

@@ -1,0 +1,271 @@
+.delivery {
+	background-color: $blue;
+	padding: rem(100) 0px;
+	&__inner {
+		position: relative;
+	}
+	&__top {
+		position: relative;
+		z-index: 2;
+	}
+	&__suptitle {
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		margin-left: rem(50);
+		:first-child {
+			color: $azul;
+		}
+		:nth-child(even) {
+			font-size: rem(48);
+			margin-bottom: rem(30);
+		}
+	}
+
+	&__img-top {
+		position: absolute;
+		left: rem(-60);
+		top: rem(35);
+	}
+
+	&__title,
+	&__subtitle {
+		font-size: rem(96);
+	}
+
+	&__subtitle {
+		color: $azul;
+		margin-bottom: rem(40);
+	}
+
+	&__actions {
+		margin-bottom: rem(250);
+		position: relative;
+		z-index: 2;
+	}
+	&__forms {
+		display: flex;
+
+		justify-content: space-between;
+		position: relative;
+
+		background-color: #fff;
+		border-top-right-radius: rem(50);
+		border-end-end-radius: rem(50);
+		margin-bottom: rem(10);
+	}
+	&__forms,
+	&__text {
+		width: 100%;
+		max-width: rem(595);
+	}
+	&__email {
+		height: 100%;
+		flex: 0 1 45%;
+		padding: rem(40) rem(20) rem(40) rem(20);
+	}
+
+	&__bnt {
+		align-self: center;
+		padding: rem(22) rem(10);
+	}
+
+	&__text {
+		font-size: 12px;
+		color: #c4c4c4;
+	}
+
+	&__img-actions {
+		transform: rotate(180deg);
+		position: absolute;
+		z-index: -1;
+		right: 90%;
+		top: rem(-30);
+	}
+
+	&__img-wrap {
+		position: absolute;
+		z-index: 1;
+		top: rem(100);
+		right: rem(-250);
+	}
+
+	&__img-main {
+		max-width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+	@media (max-width: $d1) {
+		padding: rem(90) 0px;
+		&__img-wrap {
+			width: rem(700);
+			right: rem(-90);
+		}
+	}
+
+	@media (max-width: $d2) {
+		padding: rem(70) 0px;
+		&__title,
+		&__subtitle {
+			font-size: rem(76);
+		}
+		&__img-wrap {
+			right: rem(-80);
+		}
+	}
+	@media (max-width: $d3) {
+		&__img-wrap {
+			top: rem(190);
+			right: rem(-40);
+		}
+		&__img-actions {
+			right: 87%;
+			top: rem(-30);
+		}
+	}
+	@media (max-width: $d4) {
+		padding: rem(60) 0px;
+		&__img-actions {
+			right: 84%;
+			top: rem(-35);
+		}
+	}
+	@media (max-width: $d5) {
+		&__suptitle {
+			:nth-child(even) {
+				font-size: rem(30);
+				margin-bottom: rem(20);
+			}
+		}
+		&__title,
+		&__subtitle {
+			font-size: rem(56);
+		}
+		&__img-wrap {
+			width: rem(600);
+			top: rem(265);
+			right: rem(-20);
+		}
+		&__img-top {
+			top: rem(25);
+		}
+	}
+	@media (max-width: $d6) {
+		padding: rem(40) 0px;
+		&__inner {
+			display: grid;
+			grid-template: repeat(4, auto) / 1fr;
+			text-align: center;
+			grid-template-areas:
+				"top"
+				"img-main"
+				"capture"
+				"actions";
+		}
+		&__top {
+			grid-area: top;
+		}
+		&__img-top {
+			position: static;
+			margin-bottom: rem(10);
+		}
+		&__suptitle {
+			display: grid;
+			grid-template: repeat(3, auto) / auto;
+			justify-items: center;
+			grid-template-areas:
+				"line-top"
+				"small-sup"
+				"big-sup";
+			:first-child {
+				grid-area: small-sup;
+				margin-bottom: rem(20);
+			}
+			:nth-child(even) {
+				grid-area: big-sup;
+			}
+		}
+		&__suptitle,
+		&__img-top {
+			margin: 0;
+		}
+		&__capture {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: rem(15);
+		}
+		&__title,
+		&__subtitle {
+			font-size: rem(46);
+		}
+
+		&__img-top {
+			grid-area: line-top;
+		}
+		&__img-wrap {
+			grid-area: img-main;
+		}
+		&__capture {
+			grid-area: capture;
+		}
+
+		&__actions {
+			margin-bottom: rem(25);
+			grid-area: actions;
+		}
+		&__img-wrap {
+			position: initial;
+			margin: 0 auto;
+		}
+		&__img-actions {
+			display: none;
+		}
+		&__forms,
+		&__text {
+			max-width: 100%;
+		}
+		&__forms {
+			background: none;
+			border-radius: 0px;
+			width: 100%;
+			margin-bottom: rem(20);
+			flex-direction: column;
+			justify-content: space-between;
+		}
+		&__email {
+			border: 1px solid;
+
+			border-image-source: linear-gradient(141deg, #74e6cf 14%, #c0e594 106%);
+			border-width: 2pt;
+			border-image-slice: 1;
+			padding: rem(30) rem(20);
+			margin: 0 auto rem(20);
+			width: 100%;
+			max-width: 60%;
+		}
+	}
+	@media (max-width: $tablet) {
+		&__img-wrap {
+			width: 100%;
+			max-width: rem(500);
+		}
+		&__title,
+		&__subtitle {
+			font-size: rem(36);
+		}
+		&__email {
+			max-width: 80%;
+		}
+	}
+	@media (max-width: $mobile) {
+		padding: rem(20) 0px;
+		&__email {
+			max-width: 100%;
+		}
+		&__title,
+		&__subtitle {
+			font-size: rem(30);
+		}
+	}
+}
